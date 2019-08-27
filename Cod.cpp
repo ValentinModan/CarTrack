@@ -19,12 +19,10 @@ typedef struct automobil{
 	coordonate longitudine;
 }automobil;
 
-automobil automobil1[NR_AUTOMOBILE];
+automobil automobil1[NR_AUTOMOBILE][360];
+int automobile_introduse = 1;
 
-//vector<String,vector<automobil>> 
-
-int x[10][5000][5000];
-map<string, int> index;
+map<int, int> indexMap;
 
 	
 
@@ -35,23 +33,44 @@ int main()
 	freopen("test.in","r",stdin);
 	freopen("test.out","w",stdout);
 
-
+	int timp = 0;
 	for(int i=1;i<=1;i++)
 	{
 		printf("Introdu o comanda\n");
 		printf("1. Inroducere masina\n");
 		printf("2. Afisare detalii masina\n");
 
+		timp = (timp + 1) %360;
 		scanf("%d",&x);
 		switch(x){
 			case 1:
 				printf("Introdu numar, latitudine (grade,minute,secunde) longitudine(grade,minute,secunde)\n");
 				int numar_inmatriculare;
-				coordonate latitudine1;
-				coordonate longitudine;
+				automobil g_automobil;
+
 				scanf("%d",&numar_inmatriculare);
-				scanf("%d %d %d",&latitudine1.grade, &latitudine1.minute,&latitudine1.secunde);
-				printf("%d %d %d",latitudine1.grade, latitudine1.minute,latitudine1.secunde);
+
+				scanf("%d %d %d",&g_automobil.latitudine.grade, &g_automobil.latitudine.minute,&g_automobil.latitudine.secunde);
+				scanf("%d %d %d",&g_automobil.longitudine.grade, &g_automobil.longitudine.minute,&g_automobil.longitudine.secunde);
+				
+				int index;
+				if(indexMap[numar_inmatriculare]==0)
+				{
+					printf("Introducem un nou automobil:\n");
+					index = automobile_introduse;
+					indexMap[numar_inmatriculare] = automobile_introduse++;
+				}
+				else
+				{
+					index = indexMap[numar_inmatriculare];
+				}
+
+				printf("Indexul este %d\n",index);
+
+				automobil1[index][timp] =g_automobil;
+
+
+
 				break;
 
 
