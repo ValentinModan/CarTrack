@@ -54,7 +54,7 @@ int main()
 				scanf("%d %d %d",&g_automobil.longitudine.grade, &g_automobil.longitudine.minute,&g_automobil.longitudine.secunde);
 				
 				int index;
-				if(indexMap.at(numar_inmatriculare)==0)
+				if(indexMap[numar_inmatriculare]==0)
 				{
 					printf("Introducem un nou automobil:\n");
 					index = automobile_introduse;
@@ -81,10 +81,11 @@ int main()
 					printf("Masina nu a fost gasita");
 					break;
 				}
+				index_masina = indexMap[index_masina];
 				printf("Afisam masina\n");
 
 				int index_timp = timp;
-				while(index_timp>=0 && automobil1[index_timp]!=NULL)
+				while(index_timp>=0 && automobil1[index_masina][index_timp].latitudine.grade==0)
 				{
 					index_timp--;
 				}
@@ -92,6 +93,8 @@ int main()
 				if(automobil1[index_timp]!=NULL)
 				{
 					printf("Masina a fost ultima data vazuta la:\n");
+					automobil au = automobil1[index_masina][index_timp];
+					printf("(%d, %d, %d) (%d, %d, %d)\n",au.latitudine.grade,au.latitudine.minute,au.latitudine.secunde,au.longitudine.grade,au.longitudine.minute,au.longitudine.secunde);
 					
 				}
 				else

@@ -2,3 +2,12 @@ Introdu o comanda
 1. Inroducere masina
 2. Afisare detalii masina
 Introdu numar, latitudine (grade,minute,secunde) longitudine(grade,minute,secunde)
+Introducem un nou automobil:
+Indexul este 1
+Introdu o comanda
+1. Inroducere masina
+2. Afisare detalii masina
+Introdu numar inmatriculare
+Afisam masina
+Masina a fost ultima data vazuta la:
+(1, 2, 3) (4, 5, 6)
