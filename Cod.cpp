@@ -34,7 +34,7 @@ int main()
 	freopen("test.out","w",stdout);
 
 	int timp = 0;
-	for(int i=1;i<=1;i++)
+	for(int i=1;i<=2;i++)
 	{
 		printf("Introdu o comanda\n");
 		printf("1. Inroducere masina\n");
@@ -54,7 +54,7 @@ int main()
 				scanf("%d %d %d",&g_automobil.longitudine.grade, &g_automobil.longitudine.minute,&g_automobil.longitudine.secunde);
 				
 				int index;
-				if(indexMap[numar_inmatriculare]==0)
+				if(indexMap.at(numar_inmatriculare)==0)
 				{
 					printf("Introducem un nou automobil:\n");
 					index = automobile_introduse;
@@ -67,14 +67,37 @@ int main()
 
 				printf("Indexul este %d\n",index);
 
-				automobil1[index][timp] =g_automobil;
-
-
-
+				automobil1[index][timp] =g_automobil;	
 				break;
 
 
 			case 2:
+				printf("Introdu numar inmatriculare\n");
+				int index_masina;
+				scanf("%d",&index_masina);
+
+				if(indexMap[index_masina]==0)
+				{
+					printf("Masina nu a fost gasita");
+					break;
+				}
+				printf("Afisam masina\n");
+
+				int index_timp = timp;
+				while(index_timp>=0 && automobil1[index_timp]!=NULL)
+				{
+					index_timp--;
+				}
+
+				if(automobil1[index_timp]!=NULL)
+				{
+					printf("Masina a fost ultima data vazuta la:\n");
+					
+				}
+				else
+				{
+					printf("Nu am gasit masina\n");
+				}
 				break;
 		}
 	}
