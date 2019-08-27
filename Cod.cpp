@@ -1,7 +1,10 @@
 #include<stdio.h>
 #include<iostream>
+#include<vector>
 
 using namespace std;
+
+#define NR_AUTOMOBILE 100
 
 typedef struct coordonate {
 	int grade;
@@ -10,8 +13,11 @@ typedef struct coordonate {
 }coordonate;
 
 typedef struct automobil{
-
+	coordonate latitudine;
+	coordonate longitudine;
 }automobil;
+
+automobil automobil1[NR_AUTOMOBILE];
 
 int main()
 {
